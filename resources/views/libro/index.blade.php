@@ -20,7 +20,7 @@
     <div class="input-group"> 
   <input placeholder="Buscar" class="form-control form-text" type="text" name="search" id="search" value="{{request()->query('search')}}" /> 
         <span class="input-group-btn">
-        &nbsp;  &nbsp;&nbsp;  &nbsp; <button type="submit" class="btn btn-primary"><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span> Enviar</button>
+        &nbsp;  &nbsp;&nbsp;  &nbsp; <button type="submit" class="btn btn-primary"><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>Buscar</button>
         </span>
     </div>
 </form>

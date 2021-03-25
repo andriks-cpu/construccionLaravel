@@ -32,6 +32,7 @@ class LibroController extends Controller
                 ->where('Titulo', 'LIKE', "%{$search}%")
                 ->orWhere('Autor', 'LIKE', "%{$search}%")
                 ->orWhere('Descripcion', 'LIKE', "%{$search}%")
+                ->orWhere('DescripcionLarga', 'LIKE', "%{$search}%")
                 ->get();
 
             return view('libro.index',$datos)->with('search', $search);

@@ -198,6 +198,34 @@ class LibroController extends Controller
     } 
     public function inicio(){
         //
-        return view('inicio');
+        //Buscador
+        $search = request()->query('search');
+        if($search){
+            // Query Builder to search in three columns in table books
+            $datos['libros'] = Libro::query()
+                ->where('Titulo', 'LIKE', "%{$search}%")
+                ->orWhere('Autor', 'LIKE', "%{$search}%")
+                ->orWhere('Descripcion', 'LIKE', "%{$search}%")
+                ->orWhere('DescripcionLarga', 'LIKE', "%{$search}%")
+                ->get();
+
+            return view('inicio',$datos)->with('search', $search);
+
+            //$books = Book::where('title', 'LIKE', "%{$search}%")->get();
+        }else{
+            $datos['libros'] = Libro::all();
+            return view('inicio',$datos);
+        }
+        //return view('inicio');
+    } 
+
+    public function book($id)
+    {
+        //
+        $libro = Libro::Where('id','=',$id)->first();
+
+        return view('book',array(
+            'libro'=>$libro
+        ));
     } 
 }

@@ -32,4 +32,5 @@ Route::get('/home', [LibroController::class, 'index'])->name('home');
 Route::group(['middleware'=>'auth'], function () {
     Route::get('/', [LibroController::class, 'index'])->name('home');
 });
-//Route::get('/',[LibroController::class,'inicio'])->name('inicio');
+Route::get('/',[LibroController::class,'inicio'])->name('inicio');
+Route::get('/{libro}', [LibroController::class, 'book'])->name('book');

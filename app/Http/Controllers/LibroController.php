@@ -10,6 +10,7 @@ use Facade\Ignition\QueryRecorder\Query;
 
 use Response;
 //use File;
+use PDF;
 
 class LibroController extends Controller
 {
@@ -227,5 +228,16 @@ class LibroController extends Controller
         return view('book',array(
             'libro'=>$libro
         ));
+    } 
+
+    public function vistaPDF(){
+        $datos['libros']=Libro::all();
+        return view('vistaPDF',$datos);
+    }
+    public function descargaPDF(){
+        $datos['libros']=Libro::all();
+        $pdf = PDF::loadView('vistaPDF', $datos);
+
+        return $pdf->download('Listado_de_libros_en_existencia.pdf');
     } 
 }

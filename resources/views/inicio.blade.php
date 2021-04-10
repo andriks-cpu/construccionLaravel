@@ -16,7 +16,12 @@
         <br><hr>
 
         <!--PDF-->
-       
+        <div>
+
+            <a class="btn btn-primary" href="{{ url('/descargaPDF') }}">Descargar PDF</a>
+
+        </div>
+       <br>
 
 
         <div class="row">
